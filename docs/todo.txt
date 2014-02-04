@@ -1,0 +1,4 @@
+Check max page size
+Check can Headline, standfirst etc. contain HTML?
+Document score ?!?
+allowUgc?
