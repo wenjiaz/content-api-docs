@@ -2,3 +2,6 @@ Check max page size
 Check can Headline, standfirst etc. contain HTML?
 Document score ?!?
 allowUgc?
+
+Document the default result response
+Document the item endpoint which seems a bit a mashup of the others
