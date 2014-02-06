@@ -1,65 +1,135 @@
-/search
+/Content search
 =======
 
-## Refinements
-* `section` - Return content in those sections
-* `reference` - Return content with those references
-* `reference-type` - Return content with references of those types
-* `tag` - Return content with those tags
-* `ids` - Returning content with those IDs
-### Date options
- * `from-date` - Content published on or after that date, format: *yyyy-mm-dd*
- * `to-date` - Content published on or before that date, format: *yyyy-mm-dd*
- * `date-id` - Returns results within specified date range, format: *string*
-#### Examples:
-  * Relative date, e.g. `today`, `yesterday`
-  * Past duration, e.g.`last24hours`, *last7days*, *last30days*
-  * Year, e.g. *2012*, *2012*
-### Page options
-  * `page` - Returns results only for that page index, format: *integer*
-  *  `page-size` - Returns the number of items displayed per page, format: *integer*, __Default: *10*__
+## Filters
+* `section` - Return only content in those sections
+* `reference` - Return only content with those references
+* `reference-type` - Return only content with references of those types
+* `tag` - Return only content with those tags
+* `ids` - Return only content with those IDs
+* Date options
+    * `from-date` - Return only content published on or after that date - *yyyy-mm-dd*
+    * `to-date` - Return only content published on or before that date - *yyyy-mm-dd*
+    * `date-id` - Return only content published within specified date range - *string*
+    * Examples:
+        * Relative date, e.g. `today`, `yesterday`
+        * Past duration, e.g.`last24hours`, `last7days`, `last30days`
+        * Year, e.g. *2012*, *2013*
+* Page options
+    * `page` - Returns results only for that page index  - *integer*
+    * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__
+
 ## Ordering
- * `order-by - Returns results in the specified order, format: *string*
-#### Accepted Values
-   * `newest` - __Default__
-   * `oldest`
-   * `relevance`
-* `use-date` - Changes which type of date is used to order the results, format *string*
-#### Accepted Values
-   * `published` - The date the content appeared on the web - __Default__
-   * `newspaper-edition` - The date the content appeared in print
-   * `last-modified` - The date the content was last updated
+* `order-by` - Returns results in the specified order - *string*
+    * Accepted values:
+        * `newest` - __Default__
+        * `oldest`
+        * `relevance`
+* `use-date` - Changes which type of date is used to order the results - *string*
+    * Accepted values:
+        * `published` - The date the content appeared on the web - __Default__
+        * `newspaper-edition` - The date the content appeared in print
+        * `last-modified` - The date the content was last updated
+
 ## Additional information
-* `show-fields` format: *comma-seperated list of strings*
-#### Default fields included in all responses
-   * `id` - Path to content, format *string* - __Default__
-   * `sectionId` - format *string* - __Default__
-   * `sectionName` - format *string* - __Default__
-   * `webPublicationDate` - format, combined date and time in UTC according to [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) - __Default__
-   * `webTitle` - format *string* - __Default__
-   * `webUrl` - format *string* - __Default__
-   * `apiUrl` - format *string*
-#### Example:
-`2014-02-04T08:00:00Z`
-#### Optional fields
-   * trailText - format *string (HTML)*
-   * headline - format *string (HTML)*
-   * showInRelatedContent - *string (boolean)*
-   * body - format *string (HTML)* - __Required user tier: internal__
-   * lastModified - format *date*
-   * hasStoryPackage - format *string (boolean)*
-   * score - format *string (float)*
-   * standfirst - format *string (HTML)*
-   * shortUrl - format *string*
-   * thumbnail - format *string*
-   * wordcount - format *string (integer)*
-   * commentable - format *string (boolean)*
-   * isPremoderated - Comments will be checked by a moderator prior to publication - format *string (boolean)*
-   * allowUgc - format *string (boolean)*
-   * byline - format *string (HTML)*
-   * publication - format *string*
+* `show-fields` - Add fields associated with the content - *comma-seperated list of strings*
+    * Default fields included in all responses
+        * `id` - Path to content - *string*
+        * `sectionId` - Id of the section -  *string*
+        * `sectionName` - Name of the section -  *string*
+        * `webPublicationDate` -  combined date and time in UTC according to [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601)
+            * Example:`2014-02-04T08:00:00Z`
+        * `webTitle` - Title -  *string*
+        * `webUrl` - Url of the html content - *string*
+        * `apiUrl` - Url of the raw content - *string*
+    * Accepted values:
+        * `trailText` -  *string (HTML)*
+        * `headline` - *string (HTML)*
+        * `showInRelatedContent` - *string (boolean)*
+        * `body` - *string (HTML)* - __Required user tier: internal__
+        * `lastModified` - *date*
+        * `hasStoryPackage` - *string (boolean)*
+        * `score` - *string (float)*
+        * `standfirst` - *string (HTML)*
+        * `shortUrl` - *string*
+        * `thumbnail` - *string*
+        * `wordcount` - *string (integer)*
+        * `commentable` - *string (boolean)*
+        * `isPremoderated` - Comments will be checked by a moderator prior to publication if `true` - *string (boolean)*
+        * `allowUgc` - *string (boolean)*
+        * `byline` - *string (HTML)*
+        * `publication` - *string*
+        * `internalPageCode` - *string* - __Required user tier: internal__
+        * `productionOffice` - *string* - __Required user tier: internal__
+        * `shouldHideAdverts` - Adverts will not be displayed if `true` - *string (boolean)*
+        * `liveBloggingNow` - Content is currently live blogged if `true` - *string (boolean)*
+        * `commentCloseDate` - The date the comments have been closed - *date*
+        * `all`
+
+*  `show-factboxes` - Add associated facts grouped in factboxes - *comma-seperated list of strings*
+    * Accepted values:
+        * `book` 
+        * `country`
+        * `film`
+        * `game`
+        * `generic`
+        * `photography-tip`
+        * `recorded-music`
+        * `show`
+        * `travel`
+        * `all`
+*  `show-tags` - Add associated metadata tags - *comma-seperated list of strings*
+    * Accepted values:
+        * `blog`
+        * `contributor`
+        * `keyword`
+        * `newspaper-book`
+        * `newspaper-book-section`
+        * `publication`
+        * `series`
+        * `tone`
+        * `type`
+        * `all`
+*  `show-elements` - Add associated media elements such as images and audio - *comma-seperated list of strings*
+    * Accepted values:
+        * `audio`
+        * `image`
+        * `video`
+        * `all`
+*  `show-references` - Add associated reference data such as ISBNs - *comma-seperated list of strings*
+    * Accepted values:
+        * author
+        * bisac-prefix
+        * esa-cricket-match
+        * esa-football-match
+        * esa-football-team
+        * esa-football-tournament
+        * isbn
+        * musicbrainz
+        * musicbrainzgenre
+        * opta-cricket-match
+        * opta-football-match
+        * opta-football-team
+        * opta-football-tournament
+        * pa-football-competition
+        * pa-football-match
+        * pa-football-team
+        * r1-film
+        * reuters-index-ric
+        * reuters-stock-ric
+        * witness-assignment
+*  `show-snippets` - Add snippets for each specified field. A snippet is the text from the field that immediately surrounds one of the search term   - *comma-separated list of strings*
+    * Accepted values are all the fields name (See `show-fields` accepted values)
+    * `snippet-pre` - Prefix the matched search term in the snippet response with specified value - *string*
+    * `snippet-post` - Postfix the matched search term in the snippet response with specified value - *string*
+*   `show-refinements` - Add refinement for each specified field. A refinement summarise what tags have applied to all the content in the result, listing the tags and how many pieces of content they have been applied to - *comma-seperated list of strings*
+    * `refinement-size` - Limit the number of refinements to the one specifed - *integer* - __Default: *10*__
 
 
+
+
+          
+ 
 
 
 
