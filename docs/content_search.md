@@ -1,6 +1,12 @@
 /Content search
 =======
 
+## Endpoint URL
+* `http://content.guardianapis.com/search`
+
+## Query term
+* `q` - Return tag based on the query term specified
+
 ## Filters
 * `section` - Return only content in those sections
 * `reference` - Return only content with those references
@@ -18,6 +24,7 @@
 * Page options
     * `page` - Returns results only for that page index  - *integer*
     * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__
+* `show-redistributable-only` - Hide content 
 
 ## Ordering
 * `order-by` - Returns results in the specified order - *string*
