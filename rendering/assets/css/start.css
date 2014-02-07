@@ -1,0 +1,64 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin-left: 200px !important;
+  background-color: #e9eaed;
+}
+
+h2, h3, p {
+    color: #4e5665;
+}
+
+.ui.sidebar {
+    width: 200px !important;
+}
+
+.ui.page.grid.container {
+    position: relative;
+    width: auto;
+    margin-right: 28px;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.ui.segment {
+    border-radius: 0;
+}
+
+#doccontent {
+    font-size: 12px;
+}
+
+#requestor {
+    font-size: 12px;
+}
+
+#requestor h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#requestor h4 {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+
+#requestor .ui.horizontal.divider {
+    margin: 0rem 1.5rem;
+    font-size: inherit;
+    color: rgba(0, 0, 0, 0.4);
+
+}  
+
+#requestor .ui.button {
+    font-size: inherit;
+}
+
+#requestor .ui.menu .item {
+    font-size: 11px;
+}
+
+#result {
+    font-size: 11px;
+    overflow: scroll;   
+}
