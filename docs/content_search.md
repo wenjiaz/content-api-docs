@@ -20,7 +20,7 @@
     * Examples:
         * Relative date, e.g. `today`, `yesterday`
         * Past duration, e.g.`last24hours`, `last7days`, `last30days`
-        * Year, e.g. *2012*, *2013*
+        * Year, e.g. `2012`, `2013`
 * Page options
     * `page` - Returns results only for that page index  - *integer*
     * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__
