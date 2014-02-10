@@ -4,7 +4,7 @@
 ## Endpoint URL
 * `http://content.guardianapis.com/tag`
 
-# Query term
+## Query term
 * `q` - Return tag based on the query term specified
 
 ## Filters
