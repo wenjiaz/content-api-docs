@@ -21,5 +21,6 @@ npm install -g gulp
 
 ### Run gulp
 ```
+cd rendering/build
 gulp
 ```
