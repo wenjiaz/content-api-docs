@@ -18,7 +18,7 @@ function ContentApi() {
         return this.url(type)+ '?'+ $.param(formData);
     }
 
-    this.search = function (formData, type, format) {
+    this.search = function (formData, type, format, onSuccess, onFailure, onDone) {
 
     var u = this.url(type)
     var that = this;
@@ -31,12 +31,10 @@ function ContentApi() {
         data: formData
         })
         .done(function(data) {
-            $( "#result" ).empty().append( "<pre><code>" + that.prettyPrint(data, format) + "</code></pre>" );
-            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+            onSuccess(that.prettyPrint(data, format), formData, type);
         })
-        .fail(function() {
-            alert( "error" );
-        });
+        .fail(onFailure)
+        .always(onDone);
     }
 
     this.prettyPrint = function (data, format) {

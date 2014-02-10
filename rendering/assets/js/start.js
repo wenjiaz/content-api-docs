@@ -4,7 +4,9 @@ $(document).ready(function() {
     $('.ui.sidebar').sidebar('attach events', '.launch.button');
     $('.requestor-menu .item').tab();
     $('.checkbox').checkbox();
-    $('.ui.dropdown').dropdown();
+    $('.ui.dropdown').dropdown(); 
+
+
 
 
     /* install menu handdler */
@@ -22,10 +24,8 @@ $(document).ready(function() {
   var markdownApi = new MarkdownApi()
   var contentApi = new ContentApi()
 
-
   function changeEndpoint(tab, name) {
     $(".ui.tab[data-tab="+tab+"]").tab('changeTab', tab);
-    //$("#requestor-menu").tab('changeTab', tab);
     markdownApi.convert('../docs/' + name + '.md', updateContent); 
   }
 
@@ -33,13 +33,11 @@ $(document).ready(function() {
       $('#doccontent').empty().append(html);
    }
 
-  
-  /* install form submission handler */
-   $('.ui.form').submit(submitForm);
+  function getFieldValue(form, fieldId) { 
+      return form.form('get field', fieldId).val();
+  }
 
-   function submitForm(e) {
-      e.preventDefault();
-      var form = $(this);
+  function submit(form) {
 
       var formData = {
           q: getFieldValue(form, 'q'),
@@ -47,15 +45,40 @@ $(document).ready(function() {
           /* TODO more field should be added there */
       };
 
-      var type = $(this).attr('data-tab');
-      contentApi.search(formData, type, formData.format);
-      var query = contentApi.query(formData, type);
-      $("#request").get(0).nodeValue = query;
+      var type = form.attr('data-tab');
+      form.addClass('loading');
+      contentApi.search(formData, type, formData.format, searchSucceed, searchFailed, searchDone);
    }
 
-  function getFieldValue(form, fieldId) { 
-      return form.form('get field', fieldId).val();
-  }
+   function searchSucceed(data, formData, type) {
+      $( "#result" ).empty().append( "<pre><code>" + data + "</code></pre>" );
+      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+      var query = contentApi.query(formData, type);
+      $("#request").get(0).firstChild.nodeValue = query;
+   }
+
+   function searchFailed() {
+      $("#request").get(0).firstChild.nodeValue = "Last search failed ! Please retry";
+   }
+
+   function searchDone() {
+      $('.ui.form.loading').removeClass('loading');
+   }
+
+  
+  /* install form submission handler */
+   //$('.ui.form').submit(submitForm);
+   /* there is some stramge behaviors with submit events not launched => attached a new one */
+   $('.ui.submit.button').click(function(e) {
+        e.preventDefault();
+        var form = $(this).parents('form:first');
+        submit(form);
+    });
+   $('.ui.form').submit(function(e) {
+        e.preventDefault();
+   });
+
+
 
   changeEndpoint('content', 'content_search');
 
