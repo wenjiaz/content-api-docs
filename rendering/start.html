@@ -11,35 +11,34 @@
 
    <body>
 
-    <div class="ui inverted vertical menu sidebar active">
+   <div class="ui black launch right attached button" id="menuicon">
+      <i class="icon list layout"></i>
+      <span class="text" style="display: none;">Menu</span>
+    </div>
+
+    <div class="ui inverted vertical menu sidebar">
  	    <div class="header item">
          Common
         </div>
-        <div class="item">
+        <a class="item" data-name="">
         <i class="user icon"></i>
-            Authentication 
-               <div class="menu">
-              <a class="item">Getting an API key</a>
-              <a class="item">Setting an API key</a>
-            </div>
-          </div>
-              <a class="item">
-                Format
-              </a>
+        Authentication
+        </a> 
+          
               <div class="header item">
                 <i class="globe icon"></i>
                 Endpoints
               </div>
-              <a class="item" data-name="">
+              <a class="item" data-name="" data-tab="item">
                     Item
               </a>
-              <a class="item" data-name="content_search">
+              <a class="item" data-name="content_search" data-tab="content">
                 Content
               </a>
-              <a class="item" data-name="tag_search">
+              <a class="item" data-name="tag_search" data-tab="tag">
                 Tag
               </a>
-              <a class="item" data-name="section_search">
+              <a class="item" data-name="section_search" data-tab="section">
                 Section
               </a>
     </div>
@@ -48,50 +47,118 @@
     <div class="ui page grid container">
       <div class="seven wide column">
         <div class="ui raised segment" id="doccontent">
-            <h2>Content search</h2>
-            <p>
-             Lorem ipsum
-            </p>
-
-            <div class="ui teal ribbon label">Cool</div>
-
-            <h3> Filters </h3>
-            <h3> Ordering </h3>
-            <h3> Addtional informations </h3>
-
-
         </div>
     </div>
     <div class="nine wide column">  
 
     <div class="ui raised segment" id="requestor">
-        <div class="ui tabular requestor-menu menu">
+        <div class="ui text menu" id="requestor-menu">
             <a class="active item" data-tab="content">Content</a>
             <a class="item" data-tab="tag">Tag</a>
             <a class="item" data-tab="section">Section</a>
         </div>
 
         <form class="ui form tab" data-tab="tag">
+
+        <div class="three fields">
+          <div class="field">
+              <input placeholder="Tag you search" type="text" name="q">
+        </div>
+                <input type="submit" class="ui blue submit button" value="Search"></input>
+                 <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+                  </div>
+        </div>
+                    <h3>Filters</h3>
+                  
+                  <div class="two fields">
+
+                  <div class="field">
+                      <label>Section</label>
+                      <input placeholder="football, football|rugby, " type="text">
+                    </div>
+
+                  <div class="field">
+                      <label>Type</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    </div>
+
+                     <div class="two fields">
+
+                    <div class="field">
+                      <label>Reference</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    <div class="field">
+                      <label>Reference types</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    </div>
+
+                     <h4> Page options</h4>
+
+  <div class="inline fields">
+    <div class="field">
+      <label>Page index</label>
+      <input placeholder="1" type="text">
+    </div>
+
+    <div class="field">
+      <label>Results per page</label>
+      <input placeholder="10" type="text">
+    </div>
+    </div>
+
+
+
         </form>
 
         <form class="ui form tab" data-tab="section" action="">
+        <div class="three fields">
         <div class="field">
-              <input placeholder="Section you search" type="text" id="">
+              <input placeholder="Section you search" type="text" name="q">
         </div>
-        <div class="ui checkbox slider">
-        <input type="checkbox" name="format">
-        <label>XML instead of JSON</label>
-        </div>
-        
         <input type="submit" class="ui blue submit button" value"Search"></input>
+        
+        
+        <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+        </div>
+        </div>
+      
         </form>
 
         <form class="ui form tab active" data-tab="content" action="">
-          <div class="two fields">
+          <div class="three fields">
           <div class="field">
-              <input placeholder="Content you search" type="text" id="q">
+              <input placeholder="Content you search" type="text" name="q">
           </div> 
-        <input type="submit" class="ui blue submit button" value"Search"></input>
+        <input type="submit" class="ui blue submit button" value="Search"></input>
+                  <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+        </div>
           </div>
 
             <h3>Filters</h3>
@@ -169,6 +236,10 @@
 
   </form>
 </div>
+
+  <div class="ui basic labeled icon button" id="request">http://content.guardianapis.com/search?callback=jQuery20307880989289842546_1392027889973&q=obama&_=1392027889975snshhshshshhshshshshshshshshshshs
+        <i class="paste icon"></i>
+  </div>
 
 <div class="ui raised segment" id="result">
   <pre><code>

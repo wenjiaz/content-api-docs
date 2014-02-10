@@ -1,7 +1,11 @@
 body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin-left: 200px !important;
-  background-color: #e9eaed;
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background-color: #e9eaed;
+    margin: 0px;
+}
+
+body.pushed {
+    margin-left: 200px !important;
 }
 
 h2, h3, p {
@@ -24,8 +28,19 @@ h2, h3, p {
     border-radius: 0;
 }
 
+#menuicon {
+    top: 0px;
+    width: 30px;
+    z-index: 500;
+    position: fixed;
+}
+
 #doccontent {
     font-size: 12px;
+}
+
+#requestor-menu {
+    display: none;
 }
 
 #requestor {
@@ -55,7 +70,17 @@ h2, h3, p {
 }
 
 #requestor .ui.menu .item {
-    font-size: 11px;
+    font-size: 12px;
+}
+
+#request {
+    background-color: rgba(255, 255, 255, 1)!important;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display:block;
+    font-size: 12px;
+    padding-left: 2em!important;
 }
 
 #result {

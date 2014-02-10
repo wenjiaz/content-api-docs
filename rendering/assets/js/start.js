@@ -1,45 +1,60 @@
 $(document)
   .ready(function() {
+
+    /* initialize semantci ui component */
+    $('.ui.sidebar').sidebar('attach events', '.launch.button');
     $('.requestor-menu .item').tab();
     $('.checkbox').checkbox();
+    $('.ui.dropdown').dropdown();
 
 
+    /* install menu handdler */
     $('.menu.sidebar .item').click(function(e) {
         e.preventDefault();
         var name = $(this).attr('data-name');
-        markdownApi.convert('../docs/' + name + '.md', updateContent);
+        var tab = $(this).attr('data-tab');
+        if (name === "") {
+           //do nothing for the moment
+        } else {
+          changeEndpoint(tab, name)
+        }
     });
 
   var markdownApi = new MarkdownApi()
   var contentApi = new ContentApi()
 
 
-  function getFieldValue(form, fieldId) { 
-      return form.form('get field', fieldId).val();
+  function changeEndpoint(tab, name) {
+    $("#requestor-menu").tab('changeTab', tab);
+    markdownApi.convert('../docs/' + name + '.md', updateContent); 
+  }
+
+  function updateContent(html) {
+      $('#doccontent').empty().append(html);
    }
+
+  
+  /* install form submission handler */
+   $('.ui.form').submit(submitForm);
 
    function submitForm(e) {
       e.preventDefault();
       var form = $(this);
 
       var formData = {
-          q: getFieldValue(form, 'q')
+          q: getFieldValue(form, 'q'),
+          format: getFieldValue(form, 'format')
+          /* TODO more field should be added there */
       };
 
-
-      contentApi.search(formData);
-   } 
-
-
-   $('.ui.form').submit(submitForm);
-
-
-   function updateContent(html) {
-      console.log(html);
-      $('#doccontent').empty().append(html);
+      var type = $(this).attr('data-tab');
+      contentApi.search(formData, type, formData.format);
+      contentApi.query(formData, type);
    }
 
-   markdownApi.convert('../docs/common.md', updateContent);
+  function getFieldValue(form, fieldId) { 
+      return form.form('get field', fieldId).val();
+  }
 
   })
 ;
