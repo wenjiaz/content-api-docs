@@ -24,3 +24,15 @@ npm install -g gulp
 cd rendering/build
 gulp
 ```
+
+### Start server
+From the root of the repository, run:
+
+```
+python -m SimpleHTTPServer
+```
+
+Browse to
+```
+http://localhost:8000/rendering/start.html
+```
