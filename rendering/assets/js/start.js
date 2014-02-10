@@ -1,5 +1,4 @@
-$(document)
-  .ready(function() {
+$(document).ready(function() {
 
     /* initialize semantci ui component */
     $('.ui.sidebar').sidebar('attach events', '.launch.button');
@@ -25,7 +24,8 @@ $(document)
 
 
   function changeEndpoint(tab, name) {
-    $("#requestor-menu").tab('changeTab', tab);
+    $(".ui.tab[data-tab="+tab+"]").tab('changeTab', tab);
+    //$("#requestor-menu").tab('changeTab', tab);
     markdownApi.convert('../docs/' + name + '.md', updateContent); 
   }
 
@@ -49,23 +49,14 @@ $(document)
 
       var type = $(this).attr('data-tab');
       contentApi.search(formData, type, formData.format);
-      contentApi.query(formData, type);
+      var query = contentApi.query(formData, type);
+      $("#request").get(0).nodeValue = query;
    }
 
   function getFieldValue(form, fieldId) { 
       return form.form('get field', fieldId).val();
   }
 
-  })
-;
+  changeEndpoint('content', 'content_search');
 
-
-/*
-
-//Get value from an input field
-   
-
-   
-
-
-*/
+});
