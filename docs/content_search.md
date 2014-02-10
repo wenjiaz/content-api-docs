@@ -63,7 +63,7 @@
         * `wordcount` - *string (integer)*
         * `commentable` - *string (boolean)*
         * `isPremoderated` - Comments will be checked by a moderator prior to publication if `true` - *string (boolean)*
-        * `allowUgc` - *string (boolean)*
+        * `allowUgc` - May have associated User Generated Content. This typically means the content has an associated [Guardian Witness](http://witness.theguardian.com/) assignment which can be accessed by querying `show-references=witness-assignment` *string (boolean)*
         * `byline` - *string (HTML)*
         * `publication` - *string*
         * `internalPageCode` - *string* - __Required user tier: internal__
@@ -124,7 +124,7 @@
         * r1-film
         * reuters-index-ric
         * reuters-stock-ric
-        * witness-assignment
+        * witness-assignment - See `allowUgc`
 *  `show-snippets` - Add snippets for each specified field. A snippet is the text from the field that immediately surrounds one of the search term   - *comma-separated list of strings*
     * Accepted values are all the fields name (See `show-fields` accepted values)
     * `snippet-pre` - Prefix the matched search term in the snippet response with specified value - *string*
