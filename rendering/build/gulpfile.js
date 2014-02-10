@@ -14,7 +14,7 @@ var src = {
 
 var out = {
   scripts: '../public/js',
-  images: '../public/img',
+  images: '../public/images',
   css: '../public/css'
 };
 
@@ -22,7 +22,7 @@ var out = {
 gulp.task('scripts', function() {
   /* Minify and concat */
   return gulp.src(src.scripts)
-    .pipe(uglify())
+     //.pipe(uglify())
     .pipe(concat('all.min.js'))
     .pipe(gulp.dest(out.scripts));
 });
