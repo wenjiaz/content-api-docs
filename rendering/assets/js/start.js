@@ -26,7 +26,7 @@ $(document).ready(function() {
 
   function changeEndpoint(tab, name) {
     $(".ui.tab[data-tab="+tab+"]").tab('changeTab', tab);
-    markdownApi.convert('../docs/' + name + '.md', updateContent); 
+    markdownApi.convert('docs/' + name + '.md', updateContent); 
   }
 
   function updateContent(html) {
