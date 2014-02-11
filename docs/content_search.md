@@ -56,7 +56,7 @@
         * `body` - *string (HTML)* - __Required user tier: internal__
         * `lastModified` - *date*
         * `hasStoryPackage` - *string (boolean)*
-        * `score` - *string (float)*
+        * `score` - A relevance score based on the search query used - *string (float)*
         * `standfirst` - *string (HTML)*
         * `shortUrl` - *string*
         * `thumbnail` - *string*
