@@ -52,10 +52,10 @@
     * Accepted values:
         * `trailText` -  *string (HTML)*
         * `headline` - *string (HTML)*
-        * `showInRelatedContent` - *string (boolean)*
+        * `showInRelatedContent` - Whether this content can appear in automatically generated Related Content - *string (boolean)*
         * `body` - *string (HTML)* - __Required user tier: internal__
         * `lastModified` - *date*
-        * `hasStoryPackage` - *string (boolean)*
+        * `hasStoryPackage` - Has related content selected by editors - *string (boolean)*
         * `score` - A relevance score based on the search query used - *string (float)*
         * `standfirst` - *string (HTML)*
         * `shortUrl` - *string*
