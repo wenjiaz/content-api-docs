@@ -1,9 +1,258 @@
 <html>
 <head>
-    <META HTTP-EQUIV=Refresh CONTENT="0; URL=./rendering/start.html">
-    <title>You shouldn't be here</title>
+  <!-- Standard Meta -->
+  <title>Guardian Content API Documentation</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="rendering/public/css/all.min.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="./rendering/public/js/all.min.js"></script>
 </head>
-<body>
-You are in the wrong place. Here is the <a href="./rendering/start.html">documentation</a> . If you are not automatically redirected click the link.
-</body>
+   <body>
+
+   <div class="ui black launch right attached button" id="menuicon">
+      <i class="icon list layout"></i>
+      <span class="text" style="display: none;">Menu</span>
+    </div>
+
+    <div class="ui inverted vertical menu sidebar">
+ 	    <div class="header item">
+         Common
+        </div>
+        <a class="item" data-name="">
+        <i class="user icon"></i>
+        Authentication
+        </a> 
+          
+              <div class="header item">
+                <i class="globe icon"></i>
+                Endpoints
+              </div>
+              <a class="item" data-name="" data-tab="item">
+                    Item
+              </a>
+              <a class="item" data-name="content_search" data-tab="content">
+                Content
+              </a>
+              <a class="item" data-name="tag_search" data-tab="tag">
+                Tag
+              </a>
+              <a class="item" data-name="section_search" data-tab="section">
+                Section
+              </a>
+    </div>
+
+
+    <div class="ui page grid container">
+      <div class="seven wide column">
+        <div class="ui raised segment" id="doccontent">
+        </div>
+    </div>
+    <div class="nine wide column">  
+
+    <div class="ui raised segment" id="requestor">
+        <div class="ui text menu" id="requestor-menu">
+            <a class="item" data-tab="tag">Tag</a>
+            <a class="item" data-tab="section">Section</a>
+            <a class="active item" data-tab="content">Content</a>
+        </div>
+
+        <form class="ui form tab" data-tab="tag">
+
+        <div class="three fields">
+          <div class="field">
+              <input placeholder="Tag you search" type="text" name="q">
+        </div>
+                <div class="ui blue submit button">Search</div>
+                 <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+                  </div>
+        </div>
+                    <h3>Filters</h3>
+                  
+                  <div class="two fields">
+
+                  <div class="field">
+                      <label>Section</label>
+                      <input placeholder="football, football|rugby, " type="text">
+                    </div>
+
+                  <div class="field">
+                      <label>Type</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    </div>
+
+                     <div class="two fields">
+
+                    <div class="field">
+                      <label>Reference</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    <div class="field">
+                      <label>Reference types</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    </div>
+
+                     <h4> Page options</h4>
+
+  <div class="inline fields">
+    <div class="field">
+      <label>Page index</label>
+      <input placeholder="1" type="text">
+    </div>
+
+    <div class="field">
+      <label>Results per page</label>
+      <input placeholder="10" type="text">
+    </div>
+    </div>
+
+
+
+        </form>
+
+        <form class="ui form tab" data-tab="section">
+        <div class="three fields">
+        <div class="field">
+              <input placeholder="Section you search" type="text" name="q">
+        </div>
+        <div class="ui blue submit button">Search</div>
+        
+        
+        <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+        </div>
+        </div>
+      
+        </form>
+
+        <form class="ui form tab active" data-tab="content">
+          <div class="three fields">
+          <div class="field">
+              <input placeholder="Content to search for" type="text" name="q">
+          </div> 
+          <div class="ui blue submit button">Search</div>
+                  <div class="ui selection dropdown">
+                <input type="hidden" name="format" value="json">
+                <div class="text">json</div>
+                  <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item" data-value="json">json</div>
+                      <div class="item active" data-value="xml">xml</div>
+                    </div>
+        </div>
+          </div>
+
+            <h3>Filters</h3>
+                  
+                  <div class="three fields">
+
+                  <div class=" field">
+                      <label>Section</label>
+                      <input placeholder="football, football|rugby, " type="text">
+                    </div>
+
+                  <div class="field">
+                      <label>Tags</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    <div class="field">
+                      <label>IDs</label>
+                      <input placeholder="11111" type="text">
+                    </div>
+
+                    </div>
+
+                     <div class="two fields">
+
+                    <div class="field">
+                      <label>Reference</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    <div class="field">
+                      <label>Reference types</label>
+                      <input placeholder="plop" type="text">
+                    </div>
+
+                    </div>
+  <h4> Date options</h4>
+
+ <div class="two fields">
+
+  <div class="date field">
+    <label>From</label>
+    <input placeholder="dd/mm/yyyy" type="text">
+  </div>
+
+  <div class="date field">
+    <label>To</label>
+    <input placeholder="dd/mm/yyyy" type="text">
+  </div>
+ </div>
+
+  <div class="ui horizontal divider or">or</div>
+
+  <div class="inline field">
+    <label>Range</label>
+    <input placeholder="To improve" type="text">
+  </div>
+
+  <h4> Page options</h4>
+
+  <div class="inline fields">
+    <div class="field">
+      <label>Page index</label>
+      <input placeholder="1" type="text">
+    </div>
+
+    <div class="field">
+      <label>Results per page</label>
+      <input placeholder="10" type="text">
+    </div>
+    </div>
+
+  
+    <h3> Additional informations</h3>
+
+  </form>
+</div>
+
+  <div class="ui basic labeled icon button" id="request"> request will be displayed here
+        <i class="paste icon"></i>
+  </div>
+
+<div class="ui raised segment" id="result">
+  <pre><code>
+
+  </code></pre>
+  </div>
+  </div>
+            
+  
+    </div>
+    
+   </body>
+
 </html>
