@@ -34,5 +34,5 @@ python -m SimpleHTTPServer
 
 Browse to
 ```
-http://localhost:8000/rendering/start.html
+http://localhost:8000/
 ```
