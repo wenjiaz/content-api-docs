@@ -71,6 +71,7 @@
         * `shouldHideAdverts` - Adverts will not be displayed if `true` - *string (boolean)*
         * `liveBloggingNow` - Content is currently live blogged if `true` - *string (boolean)*
         * `commentCloseDate` - The date the comments have been closed - *date*
+        * `starRating` - *string (integer)*
         * `all`
 
 *  `show-factboxes` - Add associated facts grouped in factboxes - *comma-seperated list of strings*
