@@ -86,6 +86,6 @@ $(document).ready(function() {
 
 
 
-  changeEndpoint('content', 'content_search');
+  changeEndpoint('getting_started', 'getting_started');
 
 });
