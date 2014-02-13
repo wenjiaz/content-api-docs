@@ -9,16 +9,22 @@ $(document).ready(function() {
 
 
 
-    /* install menu handdler */
+    /* install menu handler */
     $('.menu.sidebar .item').click(function(e) {
-        e.preventDefault();
         var name = $(this).attr('data-name');
+        if (name!=="external-link"){
+        e.preventDefault();
         var tab = $(this).attr('data-tab');
         if (name === "") {
-           //do nothing for the moment
+        //do nothing for the moment
         } else {
-          changeEndpoint(tab, name)
+        changeEndpoint(tab, name)
+               }
+
+
         }
+
+
     });
 
   var markdownApi = new MarkdownApi()
