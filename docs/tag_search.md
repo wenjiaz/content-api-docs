@@ -37,4 +37,4 @@ Tag search
         * r1-film
         * reuters-index-ric
         * reuters-stock-ric
-        * witness-assignment__
+        * witness-assignment

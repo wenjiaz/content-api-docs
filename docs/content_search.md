@@ -130,8 +130,11 @@ Content search
     * Accepted values are all the fields name (See `show-fields` accepted values)
     * `snippet-pre` - Prefix the matched search term in the snippet response with specified value - *string*
     * `snippet-post` - Postfix the matched search term in the snippet response with specified value - *string*
-*   `show-refinements` - Add refinement for each specified field. A refinement summarise what tags have applied to all the content in the result, listing the tags and how many pieces of content they have been applied to - *comma-seperated list of strings*
-    * `refinement-size` - Limit the number of refinements to the one specifed - *integer* - __Default: *10*__
+*   `show-refinements` - Refinements provide options for filtering your results further. You can see them at the bottom of the response. Each refinement tells you how many content items within your search would be returned if you also filtered by that tag or section. - *comma-seperated list of strings*
+    * `refinement-size` - Limit the number of refinements to the number specifed - *integer* - __Default: *10*__
+
+## Example query
+[http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance](http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance)
 
 
 
