@@ -2,7 +2,7 @@ Tag search
 =======
 
 ## Endpoint URL
-* `http://content.guardianapis.com/tag`
+* `http://content.guardianapis.com/tags`
 
 ## Query term
 * `q` - Return tag based on the query term specified
@@ -38,3 +38,6 @@ Tag search
         * reuters-index-ric
         * reuters-stock-ric
         * witness-assignment
+
+## Example
+[http://content.guardianapis.com/tags?q=apple&section=technology&show-references=all](http://content.guardianapis.com/tags?q=apple&section=technology&show-references=all)
