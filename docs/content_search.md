@@ -53,7 +53,7 @@
         * `trailText` -  *string (HTML)*
         * `headline` - *string (HTML)*
         * `showInRelatedContent` - Whether this content can appear in automatically generated Related Content - *string (boolean)*
-        * `body` - *string (HTML)* - __Required user tier: internal__
+        * `body` - *string (HTML)*
         * `lastModified` - *date*
         * `hasStoryPackage` - Has related content selected by editors - *string (boolean)*
         * `score` - A relevance score based on the search query used - *string (float)*
@@ -66,8 +66,8 @@
         * `allowUgc` - May have associated User Generated Content. This typically means the content has an associated [Guardian Witness](http://witness.theguardian.com/) assignment which can be accessed by querying `show-references=witness-assignment` *string (boolean)*
         * `byline` - *string (HTML)*
         * `publication` - *string*
-        * `internalPageCode` - *string* - __Required user tier: internal__
-        * `productionOffice` - *string* - __Required user tier: internal__
+        * `internalPageCode` - *string*
+        * `productionOffice` - *string*
         * `shouldHideAdverts` - Adverts will not be displayed if `true` - *string (boolean)*
         * `liveBloggingNow` - Content is currently live blogged if `true` - *string (boolean)*
         * `commentCloseDate` - The date the comments have been closed - *date*
