@@ -1,4 +1,4 @@
-/Section search
+Section search
 =======
 
 ## Endpoint URL

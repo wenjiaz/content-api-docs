@@ -1,4 +1,4 @@
-/Tag search
+Tag search
 =======
 
 ## Endpoint URL

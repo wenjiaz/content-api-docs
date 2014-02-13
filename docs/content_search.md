@@ -1,4 +1,4 @@
-/Content search
+Content search
 =======
 
 ## Endpoint URL
