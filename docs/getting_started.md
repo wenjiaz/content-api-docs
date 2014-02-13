@@ -18,10 +18,10 @@ We have additional detail in the form of sample applications and client librarie
 
 The Content API was designed to provide simple methods for asking hard questions. There are four RESTful endpoints that will help you discover and locate exactly what you want:
 
-* [Content Search](/#/content)
-* [Tag Search]()
-* [Section Search]()
-* [Item]()
+* [Content Search](/content.html)
+* [Tag Search](/tag.html)
+* [Section Search](/section.html)
+* [Item](/item.html)
 
 ## Endpoint 1: [Content Search]()
 

@@ -1,10 +1,11 @@
 function ContentApi() {
     
-    var contentURL = 'http://content.guardianapis.com/search';
-    var itemURL = 'http://content.guardianapis.com';
-    var tagURL = 'http://content.guardianapis.com/tags'; 
-    var sectionURL = 'http://content.guardianapis.com/sections';
+    var base = 'http://content.guardianapis.com/';
 
+    var itemURL = base;
+    var contentURL = base + 'search';
+    var tagURL = base + 'tags'; 
+    var sectionURL = base + 'sections';
 
     this.url = function (type) {
         var u = itemURL;
@@ -115,7 +116,11 @@ function MarkdownApi() {
         rawFile.send(null);
     }
 
-    this.convert = function(file, onSuccess) {
-        this.read(file, function(data){onSuccess(markdown.toHTML(data))});
+    this.convert = function(file, onSuccess, prependContent) {
+        this.read(file, function(data){
+            var html = markdown.toHTML(data);
+            var result = prependContent !== undefined ? (prependContent + html) : html;
+            onSuccess(result);
+        });
     }
 }

@@ -1,43 +1,11 @@
 $(document).ready(function() {
 
-    /* initialize semantci ui component */
-    $('.ui.sidebar').sidebar('attach events', '.launch.button');
     $('.requestor-menu .item').tab();
     $('.checkbox').checkbox();
     $('.ui.dropdown').dropdown(); 
 
-
-
-
-    /* install menu handler */
-    $('.menu.sidebar .item').click(function(e) {
-        var name = $(this).attr('data-name');
-        if (name!=="external-link"){
-        e.preventDefault();
-        var tab = $(this).attr('data-tab');
-        if (name === "") {
-        //do nothing for the moment
-        } else {
-        changeEndpoint(tab, name)
-               }
-
-
-        }
-
-
-    });
-
   var markdownApi = new MarkdownApi()
   var contentApi = new ContentApi()
-
-  function changeEndpoint(tab, name) {
-    $(".ui.tab[data-tab="+tab+"]").tab('changeTab', tab);
-    markdownApi.convert('docs/' + name + '.md', updateContent); 
-  }
-
-  function updateContent(html) {
-      $('#doccontent').empty().append(html);
-   }
 
   function getFieldValue(form, fieldId) { 
       return form.form('get field', fieldId).val();
@@ -85,7 +53,23 @@ $(document).ready(function() {
    });
 
 
+  function renderDoc(name, html) {
+    markdownApi.convert('docs/' + name +'.md', updateContent, html); 
+  }
 
-  changeEndpoint('getting_started', 'getting_started');
+  function updateContent(html) {
+      $('#doccontent').empty().append(html);
+  }
+
+
+  var name = $('#doccontent').attr('data-file');
+  var includecommon = $('#doccontent').attr('data-include-common');
+  if (includecommon === 'true') {
+    markdownApi.convert('docs/common.md', function(html) {
+      renderDoc(name, html);
+    });    
+  } else {
+      renderDoc(name);
+  }
 
 });
