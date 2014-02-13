@@ -5,7 +5,7 @@ Content search
 * `http://content.guardianapis.com/search`
 
 ## Query term
-* `q` - Return tag based on the query term specified
+* `q` - Request content containing this free text
 
 ## Filters
 * `section` - Return only content in those sections
@@ -22,8 +22,8 @@ Content search
         * Past duration, e.g.`last24hours`, `last7days`, `last30days`
         * Year, e.g. `2012`, `2013`
 * Page options
-    * `page` - Returns results only for that page index  - *integer*
-    * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__
+    * `page` - return the result set from a particular page.   - *integer*
+    * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__ __Maximum: *50*__
 * `show-redistributable-only` - Hide content 
 
 ## Ordering
@@ -130,7 +130,7 @@ Content search
     * Accepted values are all the fields name (See `show-fields` accepted values)
     * `snippet-pre` - Prefix the matched search term in the snippet response with specified value - *string*
     * `snippet-post` - Postfix the matched search term in the snippet response with specified value - *string*
-*   `show-refinements` - Refinements provide options for filtering your results further. You can see them at the bottom of the response. Each refinement tells you how many content items within your search would be returned if you also filtered by that tag or section. - *comma-seperated list of strings*
+*   `show-refinements` - Specify which refinements to return for the search result set. Refinements will help filter the query into more specific and useful results  - *comma-seperated list of strings*
     * `refinement-size` - Limit the number of refinements to the number specifed - *integer* - __Default: *10*__
 
 ## Example query

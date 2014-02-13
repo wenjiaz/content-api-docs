@@ -5,7 +5,7 @@ Tag search
 * `http://content.guardianapis.com/tags`
 
 ## Query term
-* `q` - Return tag based on the query term specified
+* `q` - Request tags containing this free text
 
 ## Filters
 * `section` - Return only content in those sections
@@ -16,7 +16,7 @@ Tag search
     * `page-size` - Modify the number of items displayed per page  - *integer*  - __Default: *10*__
 
 ## Additional information
-*  `show-references` - Add associated reference data such as ISBNs - *comma-seperated list of strings*
+*  `show-references` - Show associated reference data such as ISBNs - *comma-seperated list of strings*
     * Accepted values:
         * author
         * bisac-prefix
