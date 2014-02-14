@@ -26,11 +26,6 @@ Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
 `from-date` | Return only content published on or after that date | *Date*
 `to-date` | Return only content published on or before that date | *Date*
-`date-id` | Return only content published within specified date range | *String* | See list below
-
-* Relative date, e.g. `today`, `yesterday`
-* Past duration, e.g.`last24hours`, `last7days`, `last30days`
-* Year, e.g. `2012`, `2013`
 
 ### Page options
 
@@ -38,7 +33,6 @@ Name  | Description | Type | Accepted values
 ----- | ----------- | -----| ---------------
 `page` | Return only the result set from a particular page | *Integer*
 `page-size` | Modify the number of items displayed per page | *Integer* | 1 to 50
-`show-redistributable-only` | Hide content | Boolean | true\|false
 
 ## Ordering
 
@@ -105,21 +99,6 @@ Field  | Description | Type |  |
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`show-factboxes` | Add associated facts grouped in factboxes | *String list* | See list below
-
-* `book` 
-* `country`
-* `film`
-* `game`
-* `generic`
-* `photography-tip`
-* `recorded-music`
-* `show`
-* `travel`
-* `all`
-
-Name  | Description | Type | Accepted values
------ | ----------- | ---- | ---------------
 `show-tags` | Add associated metadata tags | *String list* | See list below
 
 * `blog`
@@ -169,11 +148,7 @@ Name  | Description | Type | Accepted values
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`show-snippets` | Add snippets for each specified field. A snippet is the text from the field that immediately surrounds one of the search term | *String list* | all the fields name (See `show-fields` accepted values)
-`snippet-pre` | Prefix the matched search term in the snippet response with specified value | *String*
-`snippet-post` | Postfix the matched search term in the snippet response with specified value | *String*
-`show-refinements` | Specify which refinements to return for the search result set. Refinements will help filter the query into more specific and useful results | *String list*
-`refinement-size` | Limit the number of refinements to the number specifed | *Integer* | __Default: *10*__
+*  `show-most-viewed` | Add associated media elements such as images and audio | *String list* | See list below
 
 ## Example query
 [http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance](http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance)
