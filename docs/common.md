@@ -1,20 +1,31 @@
-Common
-=======
+## Common
 
-##  Authentication
-### Getting an API key
-### Setting an API key
-* `api-key` - API key used for the query  - *string*
+The following types are used:
 
-Format
-=======
-* `format` - Return results in the specified format - *string*
-    * Accepted values:
-        * `json` - __Default__
-        * `xml`
+* *String*
+* *String list* : a comma separated list of *String*
+* *Integer*
+* *Boolean*
+* *Date* : a date using the `yyyy-mm-dd` pattern
+* *Datetime* : a combined date and time in UTC according to [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601), eg. `2014-02-04T08:00:00Z`
 
-JSONP
-=====
-* `callback` - Wrap the response in the requested call back - *string*
+###  Authentication
 
-*Read also: [HTTP Status Codes and APIs: how the Guardian's Content API does it](http://www.theguardian.com/info/developer-blog/2012/jul/16/http-status-codes-jsonp)*
+Name  | Description | Type | Accepted values
+----- | ----- | ----------- | ---------------
+`api-key` | The API key used for the query | *String*
+
+### Format
+
+Name  | Description | Type | Accepted values
+----- | ----- | ----------- | ---------------
+`format` |  The format to return the results in | *String* | json \| xml  
+
+
+### Cross origin requests
+
+Name  | Description | Type | Accepted values
+----- | ----- | ----------- | ---------------
+`callback` | The javascript callback name to wrap the JSON response. Read [HTTP Status Codes and APIs: how the Guardian's Content API does it](http://www.theguardian.com/info/developer-blog/2012/jul/16/http-status-codes-jsonp) for more details | *String*
+
+

@@ -15,11 +15,10 @@ function MarkdownApi() {
         rawFile.send(null);
     }
 
-    this.convert = function(file, onSuccess, prependContent) {
+    this.convert = function(file, onSuccess) {
         this.read(file, function(data){
-            var html = markdown.toHTML(data);
-            var result = prependContent !== undefined ? (prependContent + html) : html;
-            onSuccess(result);
+            var html = markdown.toHTML(data, 'Maruku');
+            onSuccess(html);
         });
     }
 }

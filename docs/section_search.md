@@ -5,7 +5,10 @@ Section search
 * `http://content.guardianapis.com/sections`
 
 ## Query term
-* `q` - Return section based on the query term specified
+
+Name  | Description | Type | Accepted values
+----- | ----------- | ---- | ---------------
+`q` | Return section based on the query term specified | *String* |
 
 ## Example
 [http://content.guardianapis.com/sections?q=business](http://content.guardianapis.com/sections?q=business)

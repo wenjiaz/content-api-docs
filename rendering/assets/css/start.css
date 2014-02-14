@@ -25,5 +25,16 @@ h2, h3, p {
 }
 
 #doccontent {
-    font-size: 12px;
+    font-size: 14px;
+}
+
+#doccontent code {
+    background:#E9EEE8;
+    vertical-align: baseline;
+    padding: 0 3px;
+    font-family: Consolas, Menlo, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console';
+}
+
+#doccontent ui.table {
+    width: 80%;
 }
