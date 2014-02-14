@@ -1,6 +1,5 @@
-## Common
 
-The following types are used:
+The following types are used below:
 
 * *String*
 * *String list* : a comma separated list of *String*
@@ -9,20 +8,20 @@ The following types are used:
 * *Date* : a date using the `yyyy-mm-dd` pattern
 * *Datetime* : a combined date and time in UTC according to [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601), eg. `2014-02-04T08:00:00Z`
 
-###  Authentication
+###  Authentication parameters
 
 Name  | Description | Type | Accepted values
 ----- | ----- | ----------- | ---------------
 `api-key` | The API key used for the query | *String*
 
-### Format
+### Format parameters
 
 Name  | Description | Type | Accepted values
 ----- | ----- | ----------- | ---------------
 `format` |  The format to return the results in | *String* | json \| xml  
 
 
-### Cross origin requests
+### Cross origin requests parameters
 
 Name  | Description | Type | Accepted values
 ----- | ----- | ----------- | ---------------
