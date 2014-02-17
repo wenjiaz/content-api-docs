@@ -43,6 +43,8 @@ th .ui.icon.button {
     vertical-align: baseline;
     padding: 0 3px;
     font-family: Consolas, Menlo, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console';
+    overflow: scroll;
+    font-size: 12px;
 }
 
 #doccontent ui.table {

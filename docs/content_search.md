@@ -58,13 +58,13 @@ Name  | Description | Type | Accepted values
 
 ### Filters
 
-Name  | Description | Type | Accepted values
------ | ----------- | ---- | ---------------
-`section` | Return only content in those sections | *String* | e.g. football
-`reference` | Return only content with those references | *String* | e.g. isbn/9780718178949
-`reference-type` | Return only content with references of those types | *String* | e.g. isbn
-`tag` | Return only content with those tags | *String* | e.g. technology/apple
-`ids` | Return only content with those IDs | *String* | e.g. technology/2014/feb/17/flappy-bird-clones-apple-google
+Name  | Description | Type | Accepted values | Boolean operators
+----- | ----------- | ---- | --------------- | ------------------
+`section` | Return only content in those sections | *String* | e.g. football | true
+`reference` | Return only content with those references | *String* | e.g. isbn/9780718178949 | true
+`reference-type` | Return only content with references of those types | *String* | e.g. isbn | true
+`tag` | Return only content with those tags | *String* | e.g. technology/apple | true
+`ids` | Return only content with those IDs | *String* | e.g. technology/2014/feb/17/flappy-bird-clones-apple-google | false
 
 #### Date options
 
