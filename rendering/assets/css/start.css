@@ -24,6 +24,16 @@ h2, h3, p {
     border-radius: 0;
 }
 
+.ui.popup {
+    font-size: .775rem;
+}
+
+th .ui.icon.button {
+    margin-left: 5px;
+    padding: .6em .8em;
+}
+
+
 #doccontent {
     font-size: 14px;
 }
