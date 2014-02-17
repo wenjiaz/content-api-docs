@@ -44,9 +44,11 @@ Field  | Description | Type |  |
 `sectionId` | The id of the section |  *String*
 `sectionName` | The name of the section |  *String*
 `webPublicationDate` |  The combined date and time of publication | *Datetime*
-`webUrl` | Url of the html content | *String*
-`apiUrl` | Url of the raw content | *String*
+`webUrl` | The URL of the html content | *String*
+`apiUrl` | The URL of the raw content | *String*
 
+
+## Parameters
 
 ### Query term
 
