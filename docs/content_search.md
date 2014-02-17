@@ -8,30 +8,30 @@ Content search
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`q` | Request content containing this free text
+`q` | Request content containing this free text | *String* | e.g. Sausages
 
 ## Filters
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`section` | Return only content in those sections
-`reference` | Return only content with those references
-`reference-type` | Return only content with references of those types
-`tag` | Return only content with those tags
-`ids` | Return only content with those IDs
+`section` | Return only content in those sections | *String* | e.g. football
+`reference` | Return only content with those references | *String* | e.g. isbn/9780718178949
+`reference-type` | Return only content with references of those types | *String* | e.g. isbn
+`tag` | Return only content with those tags | *String* | e.g. technology/apple
+`ids` | Return only content with those IDs | *String* | e.g. technology/2014/feb/17/flappy-bird-clones-apple-google
 
 ### Date options
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`from-date` | Return only content published on or after that date | *Date*
-`to-date` | Return only content published on or before that date | *Date*
+`from-date` | Return only content published on or after that date | *Date* | e.g.  2014-02-16
+`to-date` | Return only content published on or before that date | *Date* | e.g.  2014-02-17
 
 ### Page options
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | -----| ---------------
-`page` | Return only the result set from a particular page | *Integer*
+`page` | Return only the result set from a particular page | *Integer* | e.g. 5
 `page-size` | Modify the number of items displayed per page | *Integer* | 1 to 50
 
 ## Ordering
