@@ -23,7 +23,7 @@ The Content API was designed to provide simple methods for asking hard questions
 * [Section Search](section.html)
 * [Item](item.html)
 
-## Endpoint 1: [Content Search]()
+## Endpoint 1: [Content Search](content.html)
 
 Most people begin with a broad idea of what they want before forming precise queries. First, try a simple search for 'debate'. Look at the results, and then try to use the API to find out more about the impact of the debates in the recent UK general election.
 
@@ -54,7 +54,7 @@ Now we have fewer results and a much more sensible corpus to play with. The para
 * ``page`` - Rather than request a large number of items per page, you can jump to any page in the results using the 'page' parameter. The number of pages for each search query are included at the top of each results page.
 * ``section`` - This parameter lets you ask for articles that are only in specific sections based on the information architecture of the Guardian web site. For example, you could ask for articles about 'debates' that were published in the Environment section.
 
-##Endpoint 2: [Tag Search]()
+##Endpoint 2: [Tag Search](tag.html)
 
 One of the more powerful aspects of the Content API is the manual categorisation that goes into releasing everything we publish. Our editors have a sophisticated approach to structuring information through the use of a range of tags and tag types, a database of nearly 20,000 terms.
 
@@ -73,7 +73,7 @@ This request shows that there are several tags containing the word 'green'. The 
 * ``type`` - the media type. responses might include Article, Poll, Video, Podcast, Interactive, etc.
 * ``blog`` - the name of one of the Guardian's many blogs. Using the search for 'green' tags in the example here, you'll see that we have a 'Green living' blog.
 
-## Endpoint 3: [Section Search]()
+## Endpoint 3: [Section Search](section.html)
 
 The Guardian network is organised by sections that more or less correspond to the way we organise the newspaper and the web site. Each piece of content can have one and only one section. Each tag can have only one section.
 
@@ -81,7 +81,7 @@ You can use the section search to find out what sections we use and the most rec
 
 
 
-## Endpoint 4: [Item]()
+## Endpoint 4: [Item](item.html)
 
 The item endpoint returns all the detail we can offer for a single piece of content.
 
@@ -139,7 +139,7 @@ Here are some of the ways you can get more out of working with the Open Platform
 
 1. [API Explorer](http://explorer.content.guardianapis.com/)
 2. [FAQ](http://www.theguardian.com/open-platform/faq)
-3. Reference Guides: [Content Search](), [Item](), [Tag Search](), [Section Search]()
+3. Reference Guides: [Content Search](content.html), [Item](item.html), [Tag Search](tag.html), [Section Search](section.html)
 4. [Open Platform Google Group](http://groups.google.com/group/guardian-api-talk/)
 5. [Sample Apps](http://www.theguardian.com/open-platform/apps)
 
