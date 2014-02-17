@@ -8,21 +8,21 @@ Tag search
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`q` | Request tags containing this free text | *String* |
+`q` | Request tags containing this free text | *String* | e.g. sausages
 
 ## Filters
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`section` | Return only content in those sections | *String*
-`reference` | Return only content with those references | *String*
-`reference-type` | Return only content with references of those types | *String*
+`section` | Return only tags in those sections | *String* | e.g. football
+`reference` | Return only tags with those references | *String* | e.g. isbn/9780349108391
+`reference-type` | Return only tags with references of those types | *String* | e.g. isbn
 
 ### Page options
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-`page`| Returns results only for that page index  | *Integer*
+`page`| Returns results only for that page index  | *Integer* | e.g. 5
 `page-size` | Modify the number of items displayed per page | *Integer*  | __Default: *10*__
 
 ## Additional information
