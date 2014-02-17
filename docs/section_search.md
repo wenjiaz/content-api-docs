@@ -4,7 +4,10 @@ Section search
 ## Endpoint URL
 * `http://content.guardianapis.com/sections`
 
-## Query term
+
+## Parameters
+
+### Query term
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------

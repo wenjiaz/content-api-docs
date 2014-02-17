@@ -4,13 +4,57 @@ Content search
 ## Endpoint URL
 * `http://content.guardianapis.com/search`
 
-## Query term
+
+## Default response
+
+    {
+    "response": {
+    "status": "ok",
+    "userTier": "free",
+    "total": 1,
+    "startIndex": 1,
+    "pageSize": 10,
+    "currentPage": 1,
+    "pages": 1,
+    "orderBy": "newest",
+    "results": [
+        {
+        "id": "politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live",
+        "sectionId": "politics",
+        "sectionName": "Politics",
+        "webPublicationDate": "2014-02-17T12:05:47Z",
+        "webTitle": "Alex Salmond speech – first minister hits back over Scottish independence – live",
+        "webUrl": "http://www.theguardian.com/politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live",
+        "apiUrl": "http://content.guardianapis.com/politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live"
+        }
+    ]}
+    }
+
+
+Field  | Description | Type |  |
+------ | ----------- | ---- |--|
+`status` | The status of the response. It refers to the state of the API. Successful calls will receive an "ok" even if your query did not return any results |  *String*
+`userTiers` | ? |  *String*
+`total` |  The number of results available for your search overall | *Integer*
+`pageSize` | The number of items returned in this call |  *Integer*
+`currentPage` | The number of the page you are browsing | *Integer*
+`pages` | The total amount of pages that are in this call | *Integer*
+`orderBy` | The sort order used | *String*
+`id` | The path to content | *String*
+`sectionId` | The id of the section |  *String*
+`sectionName` | The name of the section |  *String*
+`webPublicationDate` |  The combined date and time of publication | *Datetime*
+`webUrl` | Url of the html content | *String*
+`apiUrl` | Url of the raw content | *String*
+
+
+### Query term
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
 `q` | Request content containing this free text | *String* | e.g. Sausages
 
-## Filters
+### Filters
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
@@ -20,21 +64,21 @@ Name  | Description | Type | Accepted values
 `tag` | Return only content with those tags | *String* | e.g. technology/apple
 `ids` | Return only content with those IDs | *String* | e.g. technology/2014/feb/17/flappy-bird-clones-apple-google
 
-### Date options
+#### Date options
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
 `from-date` | Return only content published on or after that date | *Date* | e.g.  2014-02-16
 `to-date` | Return only content published on or before that date | *Date* | e.g.  2014-02-17
 
-### Page options
+#### Page options
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | -----| ---------------
 `page` | Return only the result set from a particular page | *Integer* | e.g. 5
 `page-size` | Modify the number of items displayed per page | *Integer* | 1 to 50
 
-## Ordering
+### Ordering
 
 
 Name  | Description | Type | Accepted values
@@ -53,7 +97,7 @@ Name  | Description | Type | Accepted values
 * `newspaper-edition` - The date the content appeared in print
 * `last-modified` - The date the content was last updated
 
-## Additional information
+### Additional information
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
@@ -83,19 +127,7 @@ Field  | Description | Type |  |
 `liveBloggingNow` | Content is currently live blogged if `true` | *String (Boolean)*
 `commentCloseDate` | The date the comments have been closed | Datetime
 `starRating` |  | *String (Integer)*
-`all` | Includes all the fields | 
-
-The following fields are also included in all responses:
-
-Field  | Description | Type |  |
------- | ----------- | ---- |--|
-`id` | The path to content | *String*
-`sectionId` | The id of the section |  *String*
-`sectionName` | The name of the section |  *String*
-`webPublicationDate` |  The combined date and time of publication | *Datetime*
-`webUrl` | Url of the html content | *String*
-`apiUrl` | Url of the raw content | *String*
-
+`all` | Includes all the fields |
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
