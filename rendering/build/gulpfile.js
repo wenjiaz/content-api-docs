@@ -44,6 +44,7 @@ gulp.task('css', function() {
 /* Rerun the task when a file changes */
 gulp.task('watch', function () {
   gulp.watch(src.scripts, ['scripts']);
+  gulp.watch(src.css, ['css']);
   gulp.watch(src.images, ['images']);
 });
 
