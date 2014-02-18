@@ -4,16 +4,30 @@ Item search
 ## Endpoint URL
 * `http://content.guardianapis.com/`
 
-## Default response
+## Example
+
+### Query
+
+`http://content.guardianapis.com/business/2014/feb/18/uk-inflation-falls-below-bank-england-target`
+
+### Response
 
     {
-    "response": {
-        "status": "ok",
-        "userTier": "free",
-        "total": 1
+      "response":{
+        "status":"ok",
+        "userTier":"free",
+        "total":1,
+        "content":{
+          "id":"business/2014/feb/18/uk-inflation-falls-below-bank-england-target",
+          "sectionId":"business",
+          "sectionName":"Business",
+          "webPublicationDate":"2014-02-18T11:02:45Z",
+          "webTitle":"UK inflation falls below Bank of England's 2% target",
+          "webUrl":"http://www.theguardian.com/business/2014/feb/18/uk-inflation-falls-below-bank-england-target",
+          "apiUrl":"http://content.guardianapis.com/business/2014/feb/18/uk-inflation-falls-below-bank-england-target"
         }
+      }
     }
-
 
 Field  | Description | Type |  |
 ------ | ----------- | ---- |--|
