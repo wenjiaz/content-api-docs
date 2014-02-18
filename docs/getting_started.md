@@ -1,154 +1,82 @@
-# Getting started guide
+Getting started
+===============
 
-The Open Platform is the suite of services that enable developers to build applications with the Guardian. The [Content API](http://explorer.content.guardianapis.com/) is the flagship service within the Open Platform. It's a tool for selecting and collecting Guardian content through a database of articles and multimedia published daily. There are over 1M articles available published as far back as 1999.
+The Content API is a public service for accessing all the content the Guardian creates, and the collections we have of that content (tags and sections). There are over one million items available published as far back as 1999. This overview will give you some idea of what data is available, how to find what you need, and what you will see when you make a request to us.
 
-This overview will give you insight into what data is available, how to find what you need, and what you will see when you request content from us.
+You will need to [sign up for an API key] (http://guardian.mashery.com/), which is sent with every request. Though it is not required, we have a low limit for the amount of requests that can be made by users not sending one. Plus, once we have your contact details we will be able to give you notice of any upcoming changes.
 
-You may wish to obtain an access key now in order to follow along. You can get some data without registering, but if you want deeper access you'll need to tell us about yourself and agree to the [terms and conditions](http://www.theguardian.com/open-platform/terms-and-conditions).
+The easiest way to see what data is included is by using the [Content API Explorer] (http://explorer.content.guardianapis.com/). You can build complex queries quickly and browse the results. For specific items, note that the path of any item on theguardian.com can be simply looked up in the API by replacing the domain with content.guardianapis.com.
 
-## Quick Start
-
-The easiest way to see what's available is to search using the [API Explorer](http://explorer.content.guardianapis.com). You can build complex queries quickly and browse the results directly in the browser. It should be self-explanatory for someone who has used APIs in the past.
-
-You may also want to try a fun little trick. Pull up an article on the Guardian web site in your web browser and replace the theguardian.com domain in your address bar with the API domain content.guardianapis.com. Go ahead, try it.
-
-We have additional detail in the form of sample applications and client libraries if you already know how to use the Content API. You can also walk through the reference guides for each method: Content Search, Item, Tag Search, Section Search.
-
-## Structure
-
-The Content API was designed to provide simple methods for asking hard questions. There are four RESTful endpoints that will help you discover and locate exactly what you want:
-
-* [Content Search](content.html)
-* [Tag Search](tag.html)
-* [Section Search](section.html)
-* [Item](item.html)
-
-## Endpoint 1: [Content Search](content.html)
-
-Most people begin with a broad idea of what they want before forming precise queries. First, try a simple search for 'debate'. Look at the results, and then try to use the API to find out more about the impact of the debates in the recent UK general election.
-
-[http://content.guardianapis.com/search?q=debate&amp;format=json]( http://content.guardianapis.com/search?q=debate&amp;format=json)
-
-The search term is in the ``q`` parameter, and the response format is in the ``format`` parameter. The Content Search endpoint requires both of these parameters in order to return results to you. We return both JSON and XML formats.
-
-In this case, there are well over 77,000 results, so we need to filter down the response to something more meaningful.
-
-The next query includes several parameters. We're trying to answer the question, *"What news content does the Guardian have that includes the word 'debate' in it which has been published so far in 2010?"*
-
-You can also define the details you want in the response, too...such as, _"Only give me articles tagged by a Guardian editor as 'politics'. I need the headline, thumbnail image, contributor name and article link. Show what else can be done to refine the query more."_
-
-[http://content.guardianapis.com/search?q=debate&amp;format=json&amp;tag=tone/news,politics/politics&amp;from-date=2010-01-01&amp;show-tags=contributor&amp;show-fields=headline,thumbnail,short-url&amp;show-refinements=all](http://content.guardianapis.com/search?q=debate&amp;format=json&amp;tag=tone/news,politics/politics&amp;from-date=2010-01-01&amp;show-tags=contributor&amp;show-fields=headline,thumbnail,short-url&amp;show-refinements=all)
-
-Now we have fewer results and a much more sensible corpus to play with. The parameter names should be self-explanatory. Here's a cheatsheet using the query above:
-
-* ``from-date`` and ``to-date`` - You can ask for articles published in this year, for example. The request format required is *YYYY-MM-DD*.
-* ``tag`` - Maybe you don't want all the debate coverage published by the Guardian in this instance. Ask for articles with that a Guardian editor has tagged as 'Politics'. It might be sensible in this case to narrow it down even further and ask for articles tagged with the 'General election 2010' tag. Multiple tags can be used by separating them with commas.
-* ``page-size`` - By default, the API returns 10 results, but you can ask for up to 50 at a time. We recommend taking 10 items at a time to optimise performance. Then use the pagination options to collect all the content you need.
-* ``show-fields`` - This is the parameter that tells the API what information you want from the articles. By default the API has been optimised to return the least amount of data necessary to understand what's available.
-*Notes:* When you require certain fields you can specify them as you do with the tags. For example, if you just want the headline, stand-first and thumbnail image, request them as follows: ``show-fields=headline,standfirst,thumbnail``. Of course, you can use ``show-fields=all`` if you want everything available. But we prefer that you only take what you need in order to reduce server load.
-* ``show-tags`` - This tells the API to return the tags associated with each article. You can either specify ``all`` or you can request only tags of a specific type, for example ``keyword`` or ``series``. See the [tag search reference documentation]() to find out what types of tags we have.
-* ``show-refinements`` - Refinements provide options for filtering your results further. You can see them at the bottom of the response. Each refinement tells you how many content items within your search would be returned if you also filtered by that tag or section. In this example, you can see that there are 21 articles written by Andrew Sparrow that match your search criteria.
-
-**Additional parameters:**
-
-* ``page`` - Rather than request a large number of items per page, you can jump to any page in the results using the 'page' parameter. The number of pages for each search query are included at the top of each results page.
-* ``section`` - This parameter lets you ask for articles that are only in specific sections based on the information architecture of the Guardian web site. For example, you could ask for articles about 'debates' that were published in the Environment section.
-
-##Endpoint 2: [Tag Search](tag.html)
-
-One of the more powerful aspects of the Content API is the manual categorisation that goes into releasing everything we publish. Our editors have a sophisticated approach to structuring information through the use of a range of tags and tag types, a database of nearly 20,000 terms.
-
-This endpoint is very handy for things like auto-complete search boxes. A human-edited collection of search terms can be very useful in optimising search results for a web site or app.
-
-The principles and structure of all the endpoints are similar, as you'll see with a simple search for tags that include the word 'green':
-
-[http://content.guardianapis.com/tags?q=green&amp;format=json&amp;page-size=50](http://content.guardianapis.com/tags?q=green&amp;format=json&amp;page-size=50)
-
-This request shows that there are several tags containing the word 'green'. The tags each serve different and unique purposes:
-
-* ``keyword`` - a word describing what this piece of content is about.
-* ``series`` - the name of a regularly produced content feature, such as podcasts or columns. For example, "Band of the week" and "Ask Jack" are both series.
-* ``contributor`` - the author or authors of a content item.
-* ``tone`` - the intent of the content. We have many tone tags including News, Letters, Reviews, Features, Analysis, Blogs, etc.
-* ``type`` - the media type. responses might include Article, Poll, Video, Podcast, Interactive, etc.
-* ``blog`` - the name of one of the Guardian's many blogs. Using the search for 'green' tags in the example here, you'll see that we have a 'Green living' blog.
-
-## Endpoint 3: [Section Search](section.html)
-
-The Guardian network is organised by sections that more or less correspond to the way we organise the newspaper and the web site. Each piece of content can have one and only one section. Each tag can have only one section.
-
-You can use the section search to find out what sections we use and the most recent content from that section.
+There are a number of client libaries available that wrap the Content API. The only one which is reguarly updated is the [Scala client library] (https://github.com/guardian/content-api-scala-client).
 
 
+Structure
+---------
 
-## Endpoint 4: [Item](item.html)
+The Content API has four endpoints:
 
-The item endpoint returns all the detail we can offer for a single piece of content.
+* [Single item] (#single-item)
+* [Content] (#content)
+* [Tags] (#tags)
+* [Sections] (#sections)
 
-Similar to the search endpoints, minimal results are returned by default but more data can be exposed by passing values in your request. We prefer you to request only the data that you require. You can reuse relevant parameters from the search endpoint.
 
-We've aligned the URL structure of the web site with the URL structure of the Item endpoint. Replace the domain www.theguardian.com with content.guardianapis.com. For example, [http://www.theguardian.com/politics/2010/may/10/general-election-2010-live-blog](http://www.theguardian.com/politics/2010/may/10/general-election-2010-live-blog) is the same as [http://content.guardianapis.com/politics/2010/may/10/general-election-2010-live-blog](http://content.guardianapis.com/politics/2010/may/10/general-election-2010-live-blog).
+[Single item] (item.html)
+-------------------------
 
-The response will include the headline, byline, thumbnail image URL, short URL to the article and several other details.
+The item endpoint (`/*`) returns all the data we have for a given single item ID. Here, the term 'item' refers to either a piece of content, a tag, or a section. The item endpoint matches the paths on theguardian.com. So by replacing the domain theguardian.com with content.guardianapis.com you can see the data associated.
 
-## More detail
+For example:
+* http://content.guardianapis.com/technology/2014/feb/18/doge-such-questions-very-answered (a content item)
+* http://content.guardianapis.com/world/france (a tag)
+* http://content.guardianapis.com/lifeandstyle (a section)
 
-There are some other useful aspects of the API that are worth considering. The 'results' node in each response includes some key details that will help you build better functionality in your apps.
+The response contains minimal details by default but more data can be exposed by passing parameters in your request. Many (though not all) of these parameters are shared with the Content endpoint at `/search`. More details are on the [item page] (item.html).
 
-* ``status`` – Refers to the state of the API. Successful calls will receive an "ok" even if your query did not return any results.
-* ``total`` – This number will tell you how many results are available for your search overall.
-* ``pageSize`` – The number of items returned in this call
-* ``pages`` – The total amount of pages that are in this call.
-* ``currentPage`` – The number of the page you are browsing.
-* ``orderBy`` – Order your results to make them more useful. You can specify ``newest``, ``oldest``, ``relevance``
 
-Below is an example return for a single item in JSON format:
+[Content] (content.html)
+------------------------
 
-``
-{
-    "response": {
-        "content": {
-            "apiUrl": "http://internal.content.guardianapis.com/commentisfree/2010/mar/30/kaczynskis-poland-cameron-eu",
-            "id": "commentisfree/2010/mar/30/kaczynskis-poland-cameron-eu",
-            "sectionId": "commentisfree",
-            "sectionName": "Comment is free",
-            "webPublicationDate": "2010-03-30T14:30:01Z",
-            "webTitle": "The marginalisation of Cameron's allies | Jaroslaw Adamowski",
-            "webUrl": "http://www.theguardian.com/commentisfree/2010/mar/30/kaczynskis-poland-cameron-eu"
-        },
-        "status": "ok",
-        "storyPackage": [],
-        "total": 1,
-    }
-}
-``
+The content endpoint (`/search`) returns all content items in the API. This list can then be filtered using parameters. 
+For example, lets see if the Guardian has any content on political debates:
 
-As you can see we have tried to make the results human readable. Here are some useful notes about each field:
+[http://content.guardianapis.com/search?q=debates] (http://content.guardianapis.com/search?q=debates)
 
-The majority of the content for a single item will be included in the ``fields`` node. We structured the returns this way to give us room to grow. We will add more data and data types to the API over time, and this will prevent us from breaking your apps when we do so.
-The ``shortUrl`` is available for every item. It gives you a 'gu.com' URL to use when character counts matter in the context of your app, for example.
-``standfirst`` and ``trailtext`` fields both offer short summaries or introductions to an item that we use across the Guardian website. An item may contain both or just one or the other or neither. Typically, though not always, the standfirst resides below the headline on an article page, while the trailtext is often used as promotional copy on index pages to encourage users to click through to the full article.
-``publication`` refers to one of many platforms through which Guardian content is first released. For example, most recipes on the website are first published under the publication 'The Observer'. The popular Observer supplement 'Food' is where these articles originate.
-Although not present on every item we try to include a ``thumbnail`` when we can. It should be 140px by 84px and in jpg format.
+Here, the `q` parameter filters the results to only those that include that search term. In this case, there are well many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
 
-## Further Reading / References
+[http://content.guardianapis.com/search?q=debate&tag=tone/news,politics/politics&from-date=2014-01-01](http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01)
 
-Follow the blog and [@openplatform](https://twitter.com/openplatform) on Twitter to stay current with the latest updates and enhancements. We also publish How-to's, sample apps and guest blog posts from other developers who are using the Open Platform.
+More detail about responses and available parameters are on the [content page] (content.html).
 
-Here are some of the ways you can get more out of working with the Open Platform:
 
-1. [API Explorer](http://explorer.content.guardianapis.com/)
-2. [FAQ](http://www.theguardian.com/open-platform/faq)
-3. Reference Guides: [Content Search](content.html), [Item](item.html), [Tag Search](tag.html), [Section Search](section.html)
-4. [Open Platform Google Group](http://groups.google.com/group/guardian-api-talk/)
-5. [Sample Apps](http://www.theguardian.com/open-platform/apps)
+[Tags] (tag.html)
+-----------------
 
-## General Usage Notes
+The tags endpoint (`/tags`) returns all tags in the API. All Guardian content is manually categorised using these tags, of which there are nearly 20,000.
 
-Before using the Guardian's Content API, read the [terms and conditions](http://www.theguardian.com/open-platform/terms-and-conditions). You'll find details on attribution requirements, access and republishing rights, and restrictions for the Content API.
+For example, filtered by the term 'green':
 
-By accessing and continuing to use the API, you are deemed to have accepted the terms and conditions.
+[http://content.guardianapis.com/tags?q=green] (http://content.guardianapis.com/tags?q=green)
 
-If we update the API we will post details on the blog and via the [Google Group](http://groups.google.com/group/guardian-api-talk/).
+This request shows that there are several tags containing the word. Tags have types:
 
-Lastly, we would love to see anything you create, so please post your applications (or questions) to our [Google Group](http://groups.google.com/group/guardian-api-talk/) for the Guardian's APIs.
+* `keyword` -- a word describing what this piece of content is about
+* `series` -- the name of a regularly produced content feature, such as podcasts or columns, eg. 'Band of the week'
+* `contributor` -- the author or authors of a content item
+* `tone` -- the intent of the content, such as feature or obituary
+* `type` -- the media type, such as article, poll, video, etc
+* `blog` -- the name of one of the Guardian's blogs
+
+
+[Sections] (section.html)
+-------------------------
+
+The sections endpoint (`/sections`) returns all sections in the API. The Guardian uses sections to organise content and tags: each is associated with a single section.
+
+
+Other resources
+---------------
+
+The [Guardian API talk board] (http://groups.google.com/group/guardian-api-talk/) is the best place for questions or to speak to other developers working with the Content API.
+
+For more information on you can also us on Twitter at [@gdndevelopers] (https://twitter.com/gdndevelopers), or read our [developer blog] (http://www.theguardian.com/info/developer-blog).
