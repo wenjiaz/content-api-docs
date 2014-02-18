@@ -1,4 +1,4 @@
-Item search
+Single Item
 =======
 
 ## Endpoint URL
