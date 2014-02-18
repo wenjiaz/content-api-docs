@@ -67,11 +67,15 @@ This request shows that there are several tags containing the word. Tags have ty
 * `type` -- the media type, such as article, poll, video, etc
 * `blog` -- the name of one of the Guardian's blogs
 
+More detail about responses and available parameters are on the [tags page] (tag.html).
+
 
 [Sections] (section.html)
 -------------------------
 
 The sections endpoint (`/sections`) returns all sections in the API. The Guardian uses sections to organise content and tags: each is associated with a single section.
+
+More detail about responses and available parameters are on the [sections page] (section.html).
 
 
 Other resources
