@@ -1,7 +1,7 @@
 Getting started
 ===============
 
-The Content API is a public service for accessing all the content the Guardian creates, and the collections we have of that content (tags and sections). There are over one million items available published as far back as 1999. This overview will give you some idea of what data is available, how to find what you need, and what you will see when you make a request to us.
+The Content API is a public service for accessing all the content the Guardian creates, and the collections we have of that content (tags and sections). There are over one and a half million items available published as far back as 1999. This overview will give you some idea of what data is available, how to find what you need, and what you will see when you make a request to us.
 
 You will need to [sign up for an API key] (http://guardian.mashery.com/), which is sent with every request. Though it is not required, we have a low limit for the amount of requests that can be made by users not sending one. Plus, once we have your contact details we will be able to give you notice of any upcoming changes.
 
