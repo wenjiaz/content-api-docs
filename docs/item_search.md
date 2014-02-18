@@ -20,6 +20,7 @@ Field  | Description | Type |  |
 `status` | The status of the response. It refers to the state of the API. Successful calls will receive an "ok" even if your query did not return any results |  *String*
 `userTiers` | ? |  *String*
 `total` |  The number of results available for your search overall | *Integer*
+`leadContent` |   To help show which are the key pieces of content at any one time, editors identify those pieces of content as "lead" for the tag in question | *String - list of items*
 
 ## Parameters
 
