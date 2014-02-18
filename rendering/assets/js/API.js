@@ -9,7 +9,7 @@ function MarkdownApi() {
                 if(rawFile.status === 200 || rawFile.status == 0) {
                     rawText = rawFile.responseText;
                     onSuccess(rawText);
-                    }
+                }
             }
         }
         rawFile.send(null);
