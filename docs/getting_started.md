@@ -7,7 +7,7 @@ You will need to [sign up for an API key] (http://guardian.mashery.com/), which 
 
 The easiest way to see what data is included is by using the [Content API Explorer] (http://explorer.content.guardianapis.com/). You can build complex queries quickly and browse the results. For specific items, note that the path of any item on theguardian.com can be simply looked up in the API by replacing the domain with content.guardianapis.com.
 
-There are a number of client libaries available that wrap the Content API. The only one which is reguarly updated is the [Scala client library] (https://github.com/guardian/content-api-scala-client).
+There are a number of client libaries available that wrap the Content API. The only one which is officially supported is the [Scala client library] (https://github.com/guardian/content-api-scala-client).
 
 
 Structure
