@@ -4,7 +4,7 @@ Section search
 ## Endpoint URL
 * `http://content.guardianapis.com/sections`
 
-## Default response
+## Example response
 
     {
     "response": {

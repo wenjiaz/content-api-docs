@@ -5,7 +5,7 @@ Content search
 * `http://content.guardianapis.com/search`
 
 
-## Default response
+## Example response
 
     {
     "response": {

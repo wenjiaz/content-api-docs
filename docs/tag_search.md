@@ -4,7 +4,7 @@ Tag search
 ## Endpoint URL
 * `http://content.guardianapis.com/tags`
 
-## Default response
+## Example response
     {
     "response": {
     "status": "ok",
