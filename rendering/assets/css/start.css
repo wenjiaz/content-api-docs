@@ -1,7 +1,12 @@
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     background-color: #e9eaed;
     margin-left: 200px !important;
+    height: 100%;
 }
 
 h2, h3, p {
@@ -18,6 +23,7 @@ h2, h3, p {
     margin-right: 28px;
     margin-left: 20px;
     padding: 0;
+    height: 100%;
 }
 
 .ui.segment {
