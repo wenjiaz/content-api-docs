@@ -31,7 +31,7 @@ For example:
 * http://content.guardianapis.com/world/france (a tag)
 * http://content.guardianapis.com/lifeandstyle (a section)
 
-The response contains minimal details by default but more data can be exposed by passing parameters in your request. Many (though not all) of these parameters are shared with the Content endpoint at `/search`. More details are on the [item page] (item.html).
+The response contains minimal detail by default but more data can be exposed by passing parameters in your request. Many (though not all) of these parameters are shared with the Content endpoint at `/search`. More details are on the [item page] (item.html).
 
 
 [Content] (content.html)
@@ -42,7 +42,7 @@ For example, lets see if the Guardian has any content on political debates:
 
 [http://content.guardianapis.com/search?q=debates] (http://content.guardianapis.com/search?q=debates)
 
-Here, the `q` parameter filters the results to only those that include that search term. In this case, there are well many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
+Here, the `q` parameter filters the results to only those that include that search term. In this case, there are many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
 
 [http://content.guardianapis.com/search?q=debate&tag=tone/news,politics/politics&from-date=2014-01-01](http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01)
 
@@ -67,7 +67,7 @@ This request shows that there are several tags containing the word. Tags have ty
 * `type` -- the media type, such as article, poll, video, etc
 * `blog` -- the name of one of the Guardian's blogs
 
-More detail about responses and available parameters are on the [tags page] (tag.html).
+More details about responses and available parameters are on the [tags page] (tag.html).
 
 
 [Sections] (section.html)
@@ -75,7 +75,7 @@ More detail about responses and available parameters are on the [tags page] (tag
 
 The sections endpoint (`/sections`) returns all sections in the API. The Guardian uses sections to organise content and tags: each is associated with a single section.
 
-More detail about responses and available parameters are on the [sections page] (section.html).
+More details on responses and available parameters are on the [sections page] (section.html).
 
 
 Other resources
@@ -83,4 +83,4 @@ Other resources
 
 The [Guardian API talk board] (http://groups.google.com/group/guardian-api-talk/) is the best place for questions or to speak to other developers working with the Content API.
 
-For more information on you can also us on Twitter at [@gdndevelopers] (https://twitter.com/gdndevelopers), or read our [developer blog] (http://www.theguardian.com/info/developer-blog).
+For more information you can find us on Twitter at [@gdndevelopers] (https://twitter.com/gdndevelopers), or read our [developer blog] (http://www.theguardian.com/info/developer-blog).
