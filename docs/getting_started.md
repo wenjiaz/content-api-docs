@@ -46,7 +46,7 @@ Here, the `q` parameter filters the results to only those that include that sear
 
 [http://content.guardianapis.com/search?q=debate&tag=tone/news,politics/politics&from-date=2014-01-01](http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01)
 
-More detail about responses and available parameters are on the [content page] (content.html).
+More details about responses and available parameters are on the [content page] (content.html).
 
 
 [Tags] (tag.html)
