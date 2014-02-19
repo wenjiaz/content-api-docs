@@ -21,7 +21,7 @@ The Content API has four endpoints:
 * [Sections] (#sections)
 
 
-[Single item] (item.html)
+[Single item](item.html)
 -------------------------
 
 The item endpoint (`/*`) returns all the data we have for a given single item ID. Here the term 'item' refers to either a piece of content, a tag, or a section. The item endpoint matches the paths on theguardian.com. So by replacing the domain theguardian.com with content.guardianapis.com you can see the data associated.
@@ -34,7 +34,7 @@ For example:
 The response contains minimal detail by default but more data can be exposed by passing parameters in your request. Many (though not all) of these parameters are shared with the Content endpoint at `/search`. More details are on the [item page] (item.html).
 
 
-[Content] (content.html)
+[Content](content.html)
 ------------------------
 
 The content endpoint (`/search`) returns all content items in the API. This list can then be filtered using parameters. 
@@ -49,7 +49,7 @@ Here the `q` parameter filters the results to only those that include that searc
 More details about responses and available parameters are on the [content page] (content.html).
 
 
-[Tags] (tag.html)
+[Tags](tag.html)
 -----------------
 
 The tags endpoint (`/tags`) returns all tags in the API. All Guardian content is manually categorised using these tags, of which there are nearly 20,000.
@@ -70,7 +70,7 @@ This request shows that there are several tags containing the word. Tags have ty
 More details about responses and available parameters are on the [tags page] (tag.html).
 
 
-[Sections] (section.html)
+[Sections](section.html)
 -------------------------
 
 The sections endpoint (`/sections`) returns all sections in the API. The Guardian uses sections to organise content and tags: each is associated with a single section.
