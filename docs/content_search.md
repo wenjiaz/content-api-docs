@@ -34,7 +34,6 @@ Content search
 Field  | Description | Type |  |
 ------ | ----------- | ---- |--|
 `status` | The status of the response. It refers to the state of the API. Successful calls will receive an "ok" even if your query did not return any results |  *String*
-`userTiers` | ? |  *String*
 `total` |  The number of results available for your search overall | *Integer*
 `pageSize` | The number of items returned in this call |  *Integer*
 `currentPage` | The number of the page you are browsing | *Integer*

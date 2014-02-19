@@ -33,7 +33,6 @@ Section search
 Field  | Description | Type |  |
 ------ | ----------- | ---- |--|
 `status` | The status of the response. It refers to the state of the API. Successful calls will receive an "ok" even if your query did not return any results |  *String*
-`userTiers` | ? |  *String*
 `total` |  The number of results available for your search overall | *Integer*
 `id` | The id of the section | *String*
 `webTitle` | The title dispkay on the web |  *String*
