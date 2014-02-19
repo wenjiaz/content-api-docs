@@ -1,10 +1,11 @@
-content-api-docs
-================
+Content API Documentation
+=========================
 
-Documentation for Content API V2
+The Content API, documented. Lives here: http://guardian.github.io/content-api-docs
 
 
-## Build instructions for rendering
+Running locally
+---------------
 
 ### Install npm
 OSX: 
@@ -32,7 +33,7 @@ From the root of the repository, run:
 python -m SimpleHTTPServer
 ```
 
-Browse to
+### Browse to
 ```
 http://localhost:8000/
 ```
