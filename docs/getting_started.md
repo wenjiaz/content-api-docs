@@ -1,7 +1,7 @@
 Getting started
 ===============
 
-The Content API is a public service for accessing all the content the Guardian creates, and the collections we have of that content (tags and sections). There are over one and a half million items available published as far back as 1999. This overview will give you some idea of what data is available, how to find what you need, and what you will see when you make a request to us.
+The Content API is a public service for accessing all the content the Guardian creates and the collections we have of that content (tags and sections). There are over one and a half million items available published as far back as 1999. This overview will give you some idea of what data is available, how to find what you need, and what you will see when you make a request to us.
 
 You will need to [sign up for an API key] (http://guardian.mashery.com/), which is sent with every request. Though it is not required, we have a low limit for the amount of requests that can be made by users not sending one. Plus, once we have your contact details we will be able to give you notice of any upcoming changes.
 
@@ -24,7 +24,7 @@ The Content API has four endpoints:
 [Single item] (item.html)
 -------------------------
 
-The item endpoint (`/*`) returns all the data we have for a given single item ID. Here, the term 'item' refers to either a piece of content, a tag, or a section. The item endpoint matches the paths on theguardian.com. So by replacing the domain theguardian.com with content.guardianapis.com you can see the data associated.
+The item endpoint (`/*`) returns all the data we have for a given single item ID. Here the term 'item' refers to either a piece of content, a tag, or a section. The item endpoint matches the paths on theguardian.com. So by replacing the domain theguardian.com with content.guardianapis.com you can see the data associated.
 
 For example:
 * http://content.guardianapis.com/technology/2014/feb/18/doge-such-questions-very-answered (a content item)
@@ -42,7 +42,7 @@ For example, lets see if the Guardian has any content on political debates:
 
 [http://content.guardianapis.com/search?q=debates] (http://content.guardianapis.com/search?q=debates)
 
-Here, the `q` parameter filters the results to only those that include that search term. In this case, there are many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
+Here the `q` parameter filters the results to only those that include that search term. In this case, there are many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
 
 [http://content.guardianapis.com/search?q=debate&tag=tone/news,politics/politics&from-date=2014-01-01](http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01)
 
@@ -83,4 +83,4 @@ Other resources
 
 The [Guardian API talk board] (http://groups.google.com/group/guardian-api-talk/) is the best place for questions or to speak to other developers working with the Content API.
 
-For more information you can find us on Twitter at [@gdndevelopers] (https://twitter.com/gdndevelopers), or read our [developer blog] (http://www.theguardian.com/info/developer-blog).
+For more information you can find us on Twitter at [@gdndevelopers] (https://twitter.com/gdndevelopers) or read our [developer blog] (http://www.theguardian.com/info/developer-blog).
