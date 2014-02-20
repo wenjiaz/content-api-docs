@@ -7,15 +7,8 @@ The easiest way to see what data is included is by using the [Content API Explor
 There are a number of client libaries available that wrap the Content API. The only one which is officially supported is the [Scala client library](https://github.com/guardian/content-api-scala-client).
 
 
-## Structure
+# Endpoints
 
-
-The Content API has four endpoints:
-
-* [Single item](#single-item)
-* [Content](#content)
-* [Tags](#tags)
-* [Sections](#sections)
 
 
 
