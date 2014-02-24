@@ -34,7 +34,7 @@ For example, lets see if the Guardian has any content on political debates:
 
 Here the `q` parameter filters the results to only those that include that search term. In this case, there are many results, so we might want to filter down the response to something more meaningful, specifically looking for political content published in 2014, for example:
 
-[http://content.guardianapis.com/search?q=debate&tag=tone/news,politics/politics&from-date=2014-01-01](http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01)
+<http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01>
 
 More details about responses and available parameters are on the [content page](content.html).
 
