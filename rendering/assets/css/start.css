@@ -44,6 +44,18 @@ th .ui.icon.button {
     font-size: 14px;
 }
 
+#doccontent .ui.ribbon.label {
+    text-transform: none;
+    background-color: #214583;
+    border-color: rgba(33,69,131,.15);
+    color: white;
+}
+
+#doccontent .ui.ribbon.label a{
+    text-decoration: none;
+    opacity: 1;
+}
+
 #doccontent code {
     background:#E9EEE8;
     vertical-align: baseline;

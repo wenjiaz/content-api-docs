@@ -18,66 +18,83 @@ $(document).ready(function() {
     }
 
     function updateContent(html, common) {
-        $('#doccontent').empty().append(html);
+            
+        var name = $('#doccontent').attr('data-file');
+
+        $('#doccontent').empty();
+        $('#doccontent').append('<div class="ui ribbon label"><a href="https://github.com/guardian/content-api-docs/edit/gh-pages/docs/' + name + '.md">Edit me <i class="github alternate large icon"></i></a></div>');   
+        $('#doccontent').append(html);
+        /* include common content */
         if (common !== undefined) {$('#doccontent h2').eq(2).after(common);}
 
         /* handle special item endpoint */
-        var name = $('#doccontent').attr('data-name');
-        if (name === 'item') {
-                //$('h1').empty().append("Item search");
-                //$('li > code:contains("http")').empty().append("http://content.guardianapis.com/");
-            }
+        if (name === 'item_search') {
+                
+                markdownApi.convert('docs/content_search.md', function(contentHtml) {
+                
+                    var filtersContent = $('<div/>').append(contentHtml).find('h3:contains("Filters")').nextUntil('h3').andSelf();
+                    var orderingContent = $('<div/>').append(contentHtml).find('h3:contains("Ordering")').nextUntil('h3').andSelf();
+                    var addContent = $('<div/>').append(contentHtml).find('h3:contains("Additional information")').nextUntil('h2');
 
-            /* enhance apparence */
-            $('table').addClass('ui basic table');
+                    $('h3:contains("Additional information")').before(filtersContent);
+                    $('h3:contains("Additional information")').before(orderingContent);
+                    $('h2:contains("Additional information")').after(addContent);
 
-            var tables5 = $( "tr").filter(function() {return $(this).children().length == 5 });
-            var tables4 = $( "tr").filter(function() {return $(this).children().length <= 4 });
-
-            tables4.find( "th:nth-child(1)" ).addClass('three wide');
-            tables4.find( "th:nth-child(2)" ).addClass('seven wide');
-            tables4.find( "th:nth-child(3)" ).addClass('two wide');
-            tables4.find( "th:nth-child(4)" ).addClass('four wide');
-
-
-            tables5.find( "th:nth-child(1)" ).addClass('three wide');
-            tables5.find( "th:nth-child(2)" ).addClass('five wide');
-            tables5.find( "th:nth-child(3)" ).addClass('two wide');
-            tables5.find( "th:nth-child(4)" ).addClass('three wide');
-            tables5.find( "th:nth-child(5)" ).addClass('three wide');
-
-
-            renderDoc('types', function(html){
-                $('tr th:contains("Type")').attr('data-html', html).attr('data-title', ' ');
-                $('tr th:contains("Type")').append('<div class="ui mini icon button"><i class="down triangle basic icon"></i></div>');
-                $('th[data-html]').popup({
-                    on: 'click'
+                    enhanceApparence();
                 });
+
+        } else {
+            /* enhance apparence */    
+            enhanceApparence();
+        }
+    }
+
+    function enhanceApparence() {
+        $('table').addClass('ui basic table');
+
+        var tables5 = $( "tr").filter(function() {return $(this).children().length == 5 });
+        var tables4 = $( "tr").filter(function() {return $(this).children().length <= 4 });
+
+        tables4.find( "th:nth-child(1)" ).addClass('three wide');
+        tables4.find( "th:nth-child(2)" ).addClass('seven wide');
+        tables4.find( "th:nth-child(3)" ).addClass('two wide');
+        tables4.find( "th:nth-child(4)" ).addClass('four wide');
+
+
+        tables5.find( "th:nth-child(1)" ).addClass('three wide');
+        tables5.find( "th:nth-child(2)" ).addClass('five wide');
+        tables5.find( "th:nth-child(3)" ).addClass('two wide');
+        tables5.find( "th:nth-child(4)" ).addClass('three wide');
+        tables5.find( "th:nth-child(5)" ).addClass('three wide');
+
+
+        renderDoc('types', function(html){
+            $('tr th:contains("Type")').attr('data-html', html).attr('data-title', ' ');
+            $('tr th:contains("Type")').append('<div class="ui mini icon button"><i class="down triangle basic icon"></i></div>');
+            $('th[data-html]').popup({
+                on: 'click'
+            });
+        });
+
+        renderDoc('boolean_operators', function(html) {
+            $('tr th:contains("Boolean operators")').attr('data-html', html).attr('data-title', ' ');
+            $('tr th:contains("Boolean operators")').append('<div class="ui mini icon button"><i class="down triangle basic icon"></i></div>');
+            $('th[data-html]').popup({
+                on: 'click'
             });
 
-            renderDoc('boolean_operators', function(html) {
-                $('tr th:contains("Boolean operators")').attr('data-html', html).attr('data-title', ' ');
-                $('tr th:contains("Boolean operators")').append('<div class="ui mini icon button"><i class="down triangle basic icon"></i></div>');
-                $('th[data-html]').popup({
-                    on: 'click'
-                });
+            $('tr td').filter(function() {return $(this).text() === 'false'}).empty().append('<i class="icon close"></i>');
+            $('tr td').filter(function() {return $(this).text() === 'true'}).empty().append('<i class="icon checkmark"></i>');
+        }); 
 
-                $('tr td').filter(function() {return $(this).text() === 'false'}).empty().append('<i class="icon close"></i>');
-                $('tr td').filter(function() {return $(this).text() === 'true'}).empty().append('<i class="icon checkmark"></i>');
+        /* display beautiful json */
+        $('pre code').text(function(i, t){return JSON.stringify($.parseJSON(t), null, 4)});
+        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+    }
 
-                //<td class="negative"> Requires call</td>
+    var file = $('#doccontent').attr('data-file');
+    if (file !== undefined) {
+        renderDoc(file, convertDone);
+    }
 
-            }); 
-
-            /* display beautiful json */
-            $('pre code').text(function(i, t){return JSON.stringify($.parseJSON(t), null, 4)});
-            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-
-        }
-
-        var file = $('#doccontent').attr('data-file');
-        if (file !== undefined) {
-            renderDoc(file, convertDone);
-        }
-
-    });
+});
