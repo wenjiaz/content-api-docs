@@ -38,7 +38,7 @@ $(document).ready(function() {
 
                     $('h3:contains("Additional information")').before(filtersContent);
                     $('h3:contains("Additional information")').before(orderingContent);
-                    $('h2:contains("Additional information")').after(addContent);
+                    $('h3:contains("Additional information")').after(addContent);
 
                     enhanceApparence();
                 });
