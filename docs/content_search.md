@@ -63,6 +63,7 @@ Name  | Description | Type | Accepted values | Boolean operators
 `reference` | Return only content with those references | *String* | e.g. isbn/9780718178949 | true
 `reference-type` | Return only content with references of those types | *String* | e.g. isbn | true
 `tag` | Return only content with those tags | *String* | e.g. technology/apple | true
+`rights` | Return only content with those rights | *String* | syndicatable \| subscription-databases | false
 `ids` | Return only content with those IDs | *String* | e.g. technology/2014/feb/17/flappy-bird-clones-apple-google | false
 
 #### Date options
@@ -147,7 +148,7 @@ Name  | Description | Type | Accepted values
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-*  `show-elements` | Add associated media elements such as images and audio | *String list* | See list below
+`show-elements` | Add associated media elements such as images and audio | *String list* | See list below
 
 * `audio`
 * `image`
@@ -181,10 +182,14 @@ Name  | Description | Type | Accepted values
 
 Name  | Description | Type | Accepted values
 ----- | ----------- | ---- | ---------------
-*  `show-most-viewed` | Add associated media elements such as images and audio | *String list* | See list below
+`show-rights` | Add associated rights | *String list* | See list below
+
+* `syndicatable`
+* `subscription-databases`
+* `all`
 
 ## Example query
-[http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance](http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance)
+[http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&show-refinements=all&order-by=relevance](http://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&order-by=relevance)
 
 
 
